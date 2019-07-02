@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    @foreach(\App::Listen::latest()->get() as $listen)
+                    @foreach(\App\Listen::latest()->get() as $listen)
                         {{ $listen->song->title }}
                     @endforeach
 
