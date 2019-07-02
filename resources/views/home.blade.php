@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @foreach(\App::Listen::latest()->get() as $listen)
+                        {{ $listen->song->title }}
+                    @endforeach
+
                 </div>
             </div>
         </div>
