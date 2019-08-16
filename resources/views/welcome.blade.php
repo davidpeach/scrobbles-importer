@@ -77,7 +77,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Scrobble Importer
                 </div>
 
                 <div class="links">
