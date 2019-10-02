@@ -10,6 +10,8 @@ class Album extends Model
 {
     protected $fillable = ['artist_id', 'title', 'images', 'release_date'];
 
+    protected $with = ['artist'];
+
     public function artist()
     {
         return $this->belongsTo(Artist::class);

@@ -10,6 +10,8 @@ class Listen extends Model
 {
     protected $fillable = ['song_id', 'listened_at'];
 
+    protected $with = ['song.album.artist'];
+
     public $dates = ['listened_at'];
 
     public static function lastRetrieved()

@@ -8,6 +8,10 @@ let routes = [
     {
         path: '/artists',
         component: require('./views/Artists.vue').default
+    },
+    {
+        path: '/listens',
+        component: require('./views/Listens.vue').default
     }
 ];
 

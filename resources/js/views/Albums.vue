@@ -5,7 +5,7 @@
         <div class="card-body">
 
             <ul>
-                <li v-for="album in albums" v-text="album.title"></li>
+                <li v-for="album in albums" v-text="album.title + ' by ' + album.artist.name"></li>
             </ul>
 
         </div>
@@ -23,6 +23,7 @@
         mounted: function() {
             axios.get('/api/albums').then((response) => {
                 this.albums = response.data;
+                console.log(this.albums)
             })
         }
     }
