@@ -34,4 +34,4 @@ jobs:
         env:
           DEPLOY_KEY: ${{ secrets.SERVER_SSH_KEY }}
         with:
-          args: "-avzr --delete --exclude .htaccess --exclude /uploads/ root@209.97.189.106:/var/www/html/"
+          args: "-avzr --delete root@209.97.189.106:/var/www/html/"
