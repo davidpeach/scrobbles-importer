@@ -31,5 +31,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: rsync deployments
         uses: contention/rsync-deployments@v1.0.0
+        env:
+          DEPLOY_KEY: ${{ secrets.SERVER_SSH_KEY }}
         with:
           args: "-avzr --delete --exclude .htaccess --exclude /uploads/ root@209.97.189.106:/var/www/html/"
