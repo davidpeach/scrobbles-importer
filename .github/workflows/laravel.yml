@@ -26,10 +26,10 @@ jobs:
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
     - name: Fix Permissions
-      run: sudo chown -R www-data:www-data */*
+      run: sudo chown -R david:www-data */*
     - name: rsync deployments
       uses: contention/rsync-deployments@v1.0.0
       env:
         DEPLOY_KEY: ${{ secrets.SERVER_SSH_KEY }}
       with:
-        args: "-avzr --delete --update --chown=www-data:www-data root@209.97.189.106:/var/www/html/"
+        args: "-avzr --delete --update --chown=david:www-data david@209.97.189.106:/var/www/html/"
