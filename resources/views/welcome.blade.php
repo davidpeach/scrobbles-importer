@@ -77,7 +77,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Scrobble Importer 4
+                    Scrobble Importer 5
                 </div>
 
                 <div class="links">
