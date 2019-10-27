@@ -32,4 +32,4 @@ jobs:
       env:
         DEPLOY_KEY: ${{ secrets.SERVER_SSH_KEY }}
       with:
-        args: "-avzr --delete --update --chown=www-data:group root@209.97.189.106:/var/www/html/"
+        args: "-avzr --delete --update --chown=www-data:www-data root@209.97.189.106:/var/www/html/"
