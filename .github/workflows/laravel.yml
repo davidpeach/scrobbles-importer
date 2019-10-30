@@ -28,3 +28,9 @@ jobs:
     - name: Fix Permissions
       run: |
         chmod -R 775 storage bootstrap/cache
+    - name: rsync deployments
+      uses: contention/rsync-deployments@v1.0.0
+      env:
+        DEPLOY_KEY: ${{ secrets.SERVER_SSH_KEY }}
+      with:
+        args: "-avzr --delete ${{ secrets.SERVER_RSYNC_PATH }}"
