@@ -27,8 +27,5 @@ Route::middleware([])->group(function () {
         return \App\Artist::latest()->limit(25)->get()->toArray();
     });
 
-    Route::get('listens', function () {
-        return \App\Listen::latest('listened_at')->limit(25)->get()->toArray();
-    });
-
+    Route::get('listens', 'Api\ListenController@index');
 });

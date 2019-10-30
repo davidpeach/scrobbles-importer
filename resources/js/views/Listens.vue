@@ -3,11 +3,9 @@
         <div class="card-header">Listens</div>
 
         <div class="card-body">
-
             <ul>
-                <li v-for="listen in listens" v-text="listen.song.title + ' by ' + listen.song.album.artist.name"></li>
+                <li v-for="listen in listens" v-text="listen.title + ' by ' + listen.artist + ' - ' + listen.date"></li>
             </ul>
-
         </div>
     </div>
 </template>
@@ -22,8 +20,16 @@
 
         mounted: function() {
             axios.get('/api/listens').then((response) => {
-                this.listens = response.data;
-                console.log(this.listens)
+
+                let dates = response.data.data;
+
+                for (let [key, songsbyDate] of Object.entries(dates)) {
+
+                    for (let [key, listen] of Object.entries(songsbyDate)) {
+                        this.listens.push(listen)
+                    }
+
+                }
             })
         }
     }

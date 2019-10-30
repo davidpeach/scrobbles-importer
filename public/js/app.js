@@ -1919,8 +1919,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 //
 //
 //
@@ -1943,8 +1949,21 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get('/api/listens').then(function (response) {
-      _this.listens = response.data;
-      console.log(_this.listens);
+      var dates = response.data.data;
+
+      for (var _i = 0, _Object$entries = Object.entries(dates); _i < _Object$entries.length; _i++) {
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            key = _Object$entries$_i[0],
+            songsbyDate = _Object$entries$_i[1];
+
+        for (var _i2 = 0, _Object$entries2 = Object.entries(songsbyDate); _i2 < _Object$entries2.length; _i2++) {
+          var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+              _key = _Object$entries2$_i[0],
+              listen = _Object$entries2$_i[1];
+
+          _this.listens.push(listen);
+        }
+      }
     });
   }
 });
@@ -2542,7 +2561,7 @@ var render = function() {
           return _c("li", {
             domProps: {
               textContent: _vm._s(
-                listen.song.title + " by " + listen.song.album.artist.name
+                listen.title + " by " + listen.artist + " - " + listen.date
               )
             }
           })
