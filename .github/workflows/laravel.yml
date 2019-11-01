@@ -34,4 +34,4 @@ jobs:
       env:
         DEPLOY_KEY: ${{ secrets.SERVER_SSH_KEY }}
       with:
-        args: "-avzr --delete --perms --chown=david:www-data ${{ secrets.SERVER_RSYNC_PATH }}"
+        args: "-avzr --delete ${{ secrets.SERVER_RSYNC_PATH }}"
