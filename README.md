@@ -3,6 +3,7 @@ Import your scrobbles into a Laravel codebase.
 
 **Please Note**: This is a personal itch that I wanted to scratch and is not meant to be a fully-fledged thing out of the box. It will import your scrobbles a bit at a time and keep them in a database. The database structure is just one I decided for myself - feel free to edit things for your own needs. 200 is the maximum number of scrobbles that can be imported per API request, which is a limit of the Last.FM API.
 
+
 This currently only supports importing public scrobbles from a Last.FM account.
 
 No Authentication with Last.FM is needed.
