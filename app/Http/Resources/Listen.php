@@ -21,6 +21,7 @@ class Listen extends JsonResource
             'album' => $this->song->album->title,
             'artist' => $this->song->album->artist->name,
             'date' => $this->listened_at->format('Y-m-d H:i:s'),
+            'image' => $this->song->album->preferredImage(),
         ];
     }
 }
